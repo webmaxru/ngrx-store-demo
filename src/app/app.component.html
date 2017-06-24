@@ -1,5 +1,28 @@
-<md-toolbar color="accent">
+<md-toolbar color="primary">
+  <button md-icon-button (click)="sidenavToggle(mainSideNav)">
+      <md-icon>menu</md-icon>
+    </button>
 
-  {{title}}
+  <app-header fxFlex></app-header>
+
+  <button md-icon-button>
+      <md-icon>more_vert</md-icon>
+    </button>
 
 </md-toolbar>
+
+<md-sidenav-container>
+  <md-sidenav mode="side" #mainSideNav [opened]="testPanelOpen$ | async" class="sidenav">
+
+    <app-message-form></app-message-form>
+
+  </md-sidenav>
+
+  <div class="content">
+     
+     <app-message-section></app-message-section>
+
+  </div>
+
+
+</md-sidenav-container>

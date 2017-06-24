@@ -1,0 +1,6 @@
+<md-input-container style="width: 300px;">
+  <input mdInput placeholder="" [value]="searchQuery$ | async" type="text" required [ngModel] #searchQueryRef>
+
+</md-input-container>
+
+<button md-raised-button (click)="searchMessages(searchQueryRef.value)"><md-icon>search</md-icon>Search</button>

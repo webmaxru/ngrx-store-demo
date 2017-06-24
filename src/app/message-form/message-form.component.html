@@ -1,0 +1,30 @@
+<form #messageForm="ngForm" novalidate (submit)="messageFormSubmit(messageForm)">
+
+  <md-card>
+    <md-card-header>
+      <md-icon md-card-avatar>memory</md-icon>
+      <md-card-title>Post message</md-card-title>
+      <md-card-subtitle>Just add message to memory</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+
+      <md-input-container>
+        <input mdInput placeholder="Author" value="" type="text" required [ngModel] #authorRef name="author">
+        <div *ngIf="authorRef.errors?.required && authorRef.touched" class="error">
+          Author is required
+        </div>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Text" value="" type="text" required [ngModel] #textRef name="text">
+        <div *ngIf="textRef.errors?.required && textRef.touched" class="error">
+          Text is required
+        </div>
+      </md-input-container>
+
+    </md-card-content>
+    <md-card-actions>
+      <button md-raised-button color="accent" type="submit"><md-icon>send</md-icon>Post</button>
+    </md-card-actions>
+  </md-card>
+
+</form>

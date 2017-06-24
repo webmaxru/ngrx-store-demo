@@ -1,0 +1,22 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>Messages</md-card-title>
+  </md-card-header>
+  <md-card-content class="messages-list">
+
+    <md-nav-list>
+      <md-divider></md-divider>
+      <a md-list-item *ngFor="let message of messages$ | async">
+        <h3 md-line>{{message.author}}</h3>
+        <p md-line>
+          <span>{{message.text}}</span>
+        </p>
+        <p md-line>
+          <small>Posted {{message.createdAt | date:'mediumTime' }}</small>
+        </p>
+      </a>
+    </md-nav-list>
+
+  </md-card-content>
+
+</md-card>
