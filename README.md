@@ -1,6 +1,8 @@
 # NgrxStoreDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+Demo for [Reactive State Management for you Angular app](https://slides.com/webmax/ngrx-angularup/live#/).
+
+Please set up and use the API backend from [Simple steps and powerful tools to create a Progressive Web App workshop](https://github.com/webmaxru/pwa-workshop-angular).
 
 ## Development server
 
