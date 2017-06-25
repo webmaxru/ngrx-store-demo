@@ -13,7 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { reducers } from './states/reducers';
+import { ROOT_REDUCER } from './states/reducers';
 import { MessageEffects } from './states/message.effects';
 
 import { AppComponent } from './app.component';
@@ -44,8 +44,8 @@ import { MessageService } from './services/message.service';
     MaterialModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    StoreModule.provideStore(reducers),
-    EffectsModule.run(MessageEffects),
+    StoreModule.provideStore(ROOT_REDUCER),
+    EffectsModule.run(MessageEffects), // Comment this line for message-toolbar searchMessagesNoEffects
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [MessageService],

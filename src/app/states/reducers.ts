@@ -6,7 +6,7 @@ export interface State {
   ui: UiReducer.State;
 }
 
-export const reducers = {
+export const ROOT_REDUCER = {
   messages: MessageReducer.reducer,
   ui: UiReducer.reducer
 };

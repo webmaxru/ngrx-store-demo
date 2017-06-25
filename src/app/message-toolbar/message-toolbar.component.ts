@@ -19,10 +19,10 @@ export class MessageToolbarComponent implements OnInit {
   searchString: string
   searchQuery$: Observable<string>;
 
-  constructor(private store: Store<ApplicationStore.State>, private messageService: MessageService) {}
+  constructor(private store: Store<ApplicationStore.State>, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.searchQuery$ = this.store.select(ApplicationStore.selectSearchQuery) 
+    this.searchQuery$ = this.store.select(ApplicationStore.selectSearchQuery)
   }
 
   searchMessages(searchString: string) {
@@ -30,6 +30,23 @@ export class MessageToolbarComponent implements OnInit {
       type: MessageActions.SEARCH,
       payload: searchString
     });
+  }
+
+  searchMessagesNoEffects(searchString: string) {
+
+    this.store.dispatch({
+      type: MessageActions.SEARCH,
+      payload: searchString
+    });
+
+    this.messageService.searchMessages(searchString)
+      .subscribe(
+      messages => {
+        this.store.dispatch({
+          type: MessageActions.SEARCH_SUCCESS,
+          payload: messages
+        });
+      });
   }
 
 }
